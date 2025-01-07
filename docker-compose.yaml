@@ -1,0 +1,26 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: pandoraWebsiteBackend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/media:/app/media
+      - static_volume:/app/static
+      - ./backend/db.sqlite3:/app/db.sqlite3
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: pandoraWebsiteFrontend
+    ports:
+      - "80:80"
+    volumes:
+      - static_volume:/static/
+      - ./backend/media:/media/
+    depends_on:
+      - backend
+
+volumes:
+  static_volume:
