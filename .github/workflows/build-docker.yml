@@ -28,6 +28,15 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Create .env file for backend from secrets
+        run: |
+          echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" > ./backend/.env
+          echo "DEBUG=${{ secrets.DEBUG }}" >> ./backend/.env
+          echo "ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }}" >> ./backend/.env
+          echo "CORS_ALLOWED_ORIGINS=${{ secrets.CORS_ALLOWED_ORIGINS }}" >> ./backend/.env
+          echo "CSRF_TRUSTED_ORIGINS=${{ secrets.CSRF_TRUSTED_ORIGINS }}" >> ./backend/.env
+          echo "TELEGRAM_BOT_TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }}" >> ./backend/.env
+
       - name: Extract metadata for backend
         id: meta_backend
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
