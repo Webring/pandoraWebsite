@@ -8,6 +8,7 @@ services:
     volumes:
       - ./backend/media:/app/media
       - static_volume:/app/static
+      - ./backend/.env:/app/.env
       - ./backend/db.sqlite3:/app/db.sqlite3
 
   frontend:
