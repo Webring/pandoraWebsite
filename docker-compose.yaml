@@ -15,14 +15,12 @@ services:
     build:
       context: ./frontend
     container_name: pandoraWebsiteFrontend
-    environment:
-      - DOMAIN_ADDRESS="domain"
     ports:
       - "80:80"
     volumes:
       - static_volume:/static/
       - ./backend/media:/media/
-      - /etc/letsencrypt/live/${DOMAIN_ADDRESS}:/keys
+      - /etc/letsencrypt/live/domain:/keys
     depends_on:
       - backend
 
