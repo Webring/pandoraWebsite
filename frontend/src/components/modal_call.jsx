@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Button, Col, ConfigProvider, Form, Input, message, Modal, Row} from "antd";
+import {baseApiUrl} from "../API/BaseApiUrl.js";
 
 const ModalCall = ({open, handleOk, handleCancel, socials}) => {
 
@@ -10,7 +11,7 @@ const ModalCall = ({open, handleOk, handleCancel, socials}) => {
     const onFinish = async (values) => {
         // Отправка данных на сервер
         try {
-            const response = await fetch('http://localhost:8000/api/v1/callback-form/', {
+            const response = await fetch(baseApiUrl + '/api/v1/callback-form/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
