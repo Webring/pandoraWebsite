@@ -59,7 +59,7 @@ const default_socials = [
     {
         "id": 1,
         "title": "Телефон",
-        "internal_link": "+79960716306",
+        "internal_link": "+7 (996) 071 63 06",
         "direct_link": "tel:+79960716306",
         "icon": "telephone-fill"
     }

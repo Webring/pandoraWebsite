@@ -8,7 +8,6 @@ export default class DirectionsService {
     }
 
     static async getById(id) {
-        console.log(baseApiUrl);
         const response = await axios.get(`${baseApiUrl}/api/v1/directions/${id}/`)
         return response.data;
     }
