@@ -17,10 +17,11 @@ services:
     container_name: pandoraWebsiteFrontend
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - static_volume:/static/
       - ./backend/media:/media/
-      - /etc/letsencrypt/live/domain:/ssl
+      - /etc/letsencrypt/:/etc/letsencrypt/
     depends_on:
       - backend
 
