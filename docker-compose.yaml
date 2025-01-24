@@ -20,7 +20,7 @@ services:
     volumes:
       - static_volume:/static/
       - ./backend/media:/media/
-      - /etc/letsencrypt/live/domain:/keys
+      - /etc/letsencrypt/live/domain:/ssl
     depends_on:
       - backend
 
